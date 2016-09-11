@@ -1,0 +1,13 @@
+.title {
+    font-size: 60px;
+    background-color: bisque;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+
+.searchArea{
+    margin: 0 40%;
+}
+

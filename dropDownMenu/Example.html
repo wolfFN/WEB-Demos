@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="cn">
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>DropDownMenu Example</title>
+
+    <link rel="stylesheet" type="text/css" href="DropDownSelection.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+
+<div id="dropDownMenuWrapper">
+</div>
+
+
+
+
+<script src="DropDownSelection.js"></script>
+<script>
+
+
+    var test_options = {
+        title: "要去的古镇",
+        content: [{name: '西塘', id: 'xitang'}, {name: '乌镇', id: 'wuzhen'},
+            {name: '同里', id: 'tongli'}, {name: '黄村', id: 'huangcun'}],
+        parse: function (data) {
+            return {
+                text: data.name,
+                value: data.id
+            };
+        }
+    };
+
+    //$("#dropDownMenuWrapper").dropDownSelection(test_options);
+    //$("#dropDownMenuWrapper").dropDownSelection("getValue");
+    $("#dropDownMenuWrapper").dropDownSelection("setValue", {});
+</script>
+</body>
+</html>
