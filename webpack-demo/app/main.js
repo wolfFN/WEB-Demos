@@ -2,8 +2,10 @@
 
 import './main.css';
 
-let greeter = require('./Greeter.js');
-document.getElementById('root').appendChild(greeter());
+// let greeter = require('./Greeter.js');
+
+import Greeter from './Greeter';
+document.getElementById('root').appendChild(Greeter());
 
 
 let str = 'hello es6';

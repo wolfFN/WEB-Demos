@@ -44,27 +44,56 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	//main.js
+	'use strict';
 	
-	import './main.css';
+	var _Greeter = __webpack_require__(1);
 	
-	let greeter = __webpack_require__(1);
-	document.getElementById('root').appendChild(greeter());
+	var _Greeter2 = _interopRequireDefault(_Greeter);
 	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	let str = 'hello es6';
-	for (var i of str){
-	    console.log(i);
+	document.getElementById('root').appendChild((0, _Greeter2.default)()); //main.js
+	
+	// import './main.css';
+	
+	// let greeter = require('./Greeter.js');
+	
+	var str = 'hello es6';
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+	
+	try {
+	    for (var _iterator = str[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var i = _step.value;
+	
+	        console.log(i);
+	    }
+	} catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	} finally {
+	    try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	            _iterator.return();
+	        }
+	    } finally {
+	        if (_didIteratorError) {
+	            throw _iteratorError;
+	        }
+	    }
 	}
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	let config = __webpack_require__(2);
+	'use strict';
 	
-	module.exports = function() {
-	  let greet = document.createElement('div');
+	var config = __webpack_require__(2);
+	
+	module.exports = function () {
+	  var greet = document.createElement('div');
 	  greet.textContent = config.greetText;
 	  return greet;
 	};

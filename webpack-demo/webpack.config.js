@@ -13,7 +13,7 @@ module.exports = {
                 loader: "json"
             },
             {
-                test: /\.js%/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
@@ -25,6 +25,7 @@ module.exports = {
                 loader: 'style!css'
             }
         ]
+
     },
 
     devServer: {
