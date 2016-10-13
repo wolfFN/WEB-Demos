@@ -1,6 +1,6 @@
 //main.js
 
-import './main.css';
+import './main.less';
 
 // let greeter = require('./Greeter.js');
 

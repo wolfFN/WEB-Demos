@@ -1,3 +1,7 @@
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 module.exports = {
     devtool: 'source-map',//配置生成Source Maps，选择合适的选项
     entry: __dirname + "/app/main.js",//已多次提及的唯一入口文件
@@ -23,10 +27,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style!css'
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less'
             }
         ]
 
     },
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+        new ExtractTextPlugin("style.css")
+    ],
 
     devServer: {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
