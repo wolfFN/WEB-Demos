@@ -1,27 +1,39 @@
-const fs = require('fs');
-const route = require('koa-route');
-// const path = require('path');
-// const serve = require('koa-static');
+const path = require('path');
 const Koa = require('koa');
-const Posts = require('./utils/posts');
+const serve = require('koa-static');
+const cors = require('koa2-cors');
+const views = require('koa-views')
+
+const router = require('./utils/router');
 
 const app = new Koa();
-const posts = new Posts.Posts();
 
 
-const main = ctx => {
-    ctx.response.type = 'html';
-    ctx.response.body = fs.createReadStream('./dist/index.html');
-};
+app.use(views(path.join(__dirname, './dist'), {
+    map: {
+        html: 'ejs'
+    }
+}));
 
-const about = ctx => {
-    ctx.response.type = 'html';
-    ctx.response.body = fs.createReadStream('./dist/about.html');
-};
+app.use(cors({
+    origin: function (ctx) {
+        // if (ctx.url === '/test') {     return "*"; // 允许来自所有域名请求 }
+        console.log(ctx.url);
+        return '*';
+    },
+    exposeHeaders: [
+        'WWW-Authenticate', 'Server-Authorization'
+    ],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: [
+        'GET', 'POST', 'DELETE'
+    ],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+}));
 
-// app.use(serve(path.join(__dirname + '/static')));
-app.use(route.get('/', main));
-app.use(route.get('/about', about));
-app.use(route.get('/posts', posts.lists));
-// app.use(route.get('/posts/:key', posts.detail));
+app.use(serve(path.join(__dirname + '/dist')));
+
+
+app.use(router.routes());
 app.listen(3000);

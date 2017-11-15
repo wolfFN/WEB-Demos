@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+<h1>
+    <%= title %>
+</h1>
+<div>
+    <% for(var i = 0; i < urls.length; i++) { %>
+        <img src='<%= urls[i] %>' alt="">
+    <% } %>
+</div>
+</body>
+
+</html>
