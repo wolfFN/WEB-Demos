@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const options = [
+            '北京',
+            '北方',
+            '北极',
+            '北海',
+            '上海',
+            '大海',
+            '上学',
+            '唐山',
+            '泰山',
+            '唐太宗'
+        ]
+
+
+        class Search extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    word: ''
+                };
+            }
+
+            handleChange(e) {
+                this.setState({
+                    word: e.target.value
+                });
+            }
+
+            render() {
+                const word = this.state.word;
+                const lists = options.map(function(option, index) {
+                    return option.includes(word) && <li key={index}>{option}</li>;
+                });
+                return (
+                <div>
+                    <input type="text" onChange={this.handleChange.bind(this)} />
+                    <ol>{lists}</ol>
+                </div>
+                )
+            }
+        }
+
+        const element = <Search />;
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+    </script>
+
+
+
+</body>
+</html>

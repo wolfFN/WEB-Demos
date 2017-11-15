@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class NameForm extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+                inputValue: '',
+                selectedValue: ''
+            };
+          }
+
+          handleChange(event) {
+            let name = event.target.name;
+            let value = event.target.value;
+            this.setState({
+                [name]: value
+            });
+          }
+
+          handleSubmit(event) {
+            alert("Input Value: " + this.state.input + '\n' + 'Select Value: ' + this.state.select);
+            event.preventDefault();
+          }
+
+          render() {
+            const options = ['A', 'B', 'C', 'D'];
+            const selectOptions = options.map((option, index) => 
+                <option value={option} key={index}>{option}</option>
+            );
+            return (<form onSubmit={this.handleSubmit.bind(this)}>
+                        <label>
+                            Name:<br/>
+                            <input type="text" name='input' value={this.state.input} onChange={this.handleChange.bind(this)} />
+                        </label><br/>
+                        <select name='select' value={this.state.select} onChange={this.handleChange.bind(this)}>
+                            {selectOptions}
+                        </select><br/>
+                        <input type="submit"  value="Submit" />
+                    </form>);
+          }
+        }
+
+
+        const element = <NameForm name='Theo'/>;
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function formatName(user) {
+          if (user) {
+            return user.firstName + ' ' + user.lastName;
+          }
+          return 'Stranger';
+        }
+
+        const user = {
+          firstName: 'Theo',
+          lastName: 'Walcott',
+          avatarUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509817731334&di=6caaafc24316b67349c2c282be0d7edb&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D1762175154%2C3492961450%26fm%3D214%26gp%3D0.jpg'
+        }
+
+        const urls = [
+                        "http://ww4.sinaimg.cn/large/a15b4afely1fl2zw9wt3bj20zk1cdk4d",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw8jznrj20zk1cagru",
+                        "http://ww4.sinaimg.cn/large/a15b4afely1fl2zw7jeuzj20zk1ca7ah",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw6rv4mj20zk1cddly",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw5qinej20zk1c6doz",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw4fzt3j20zk1cbwk9",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw3dqjqj20zk1c80zn",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw25l3pj20zk1c8dlb",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zw05ekwj20zk1c344d",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvxw70aj20zk1cajws",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvwkczqj20zk0j6go8",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvvcl4yj20zk1c70xh",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvtt3ivj20zk0imgnm",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvse3uwj20zk0jl0v5",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvr4od2j20zk0ivmze",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvqaaa5j20zk1c7whs",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvp0zmej20zk1caqfo",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvn0giij20zk1cen82",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvj1xuvj20zk1c7jzt",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvhpnqsj20zk1c9thn",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvg9poij20zk1c848b",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvei4usj20zk1cdqcq",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvcsanmj20zk1c6wjk",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zvbb1rfj20zk1c4af7",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zva7lx3j20zk1ca79v",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zv7kwtsj20zk1c9wkz",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zv5ji5xj20zk0jotbh",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zv47olnj20zk0jmgoq",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zv2x4eyj20zk0jbgnz",
+                        "http://ww4.sinaimg.cn/large/a15b4afegy1fl2zv1z1mbj20zk0jpjva",
+                      ];
+
+
+
+        class Welcome extends React.Component {
+          render() {
+            return (<div>
+                        <h1>Hello, {this.props.name}!</h1>
+                    </div>);
+          }
+        }
+
+        class App extends React.Component {
+          render() {
+            return (<div>
+                        <Welcome name="Sara" />
+                        <Welcome name="Cahal" />
+                        <Welcome name="Edite" />
+                      </div>);
+          }
+        }
+
+        class Title extends React.Component {
+          render() {
+            return <h1>Hello {this.props.name}! </h1>;
+          }
+        }
+
+        class Clock extends React.Component {
+          constructor(props) {
+            super(props);
+            // this.props = {name: 'Theo'};
+            this.state = {
+              isToggleOn: false,
+              buttonText: 'Toggle',
+              date: new Date()
+            };
+            // this.handleClick = this.handleClick.bind(this);
+          }
+
+          tick() {
+            this.setState({
+              date: new Date()
+            })
+          }
+
+          handleClick(name, e) {
+            console.log(name);
+            this.setState(prevState => ({
+              isToggleOn: !prevState.isToggleOn
+            }));
+          }
+
+          componentDidMount() {
+            // console.log(images);
+            this.timerId = setInterval(
+              () => this.tick(),
+              1000
+            )
+          }
+
+          componentWillUnmount() {
+            clearInterval(this.timerId);
+          }
+
+          render() {
+            const images = urls.map((url, index) => 
+              <img src={url} width='300px' key={index}/>
+            )
+            return (
+                      <div>
+                        <Title name={this.props.name}/>
+                        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                        <button onClick={this.handleClick.bind(this, this.state.buttonText)}>{this.state.buttonText}</button><br/>
+                        <img src={this.state.isToggleOn ? user.avatarUrl : ''} width='800px' alt="无图" />
+                        <div>{images}</div>
+                      </div>
+                    );
+          }
+        }
+
+
+        const element = <Clock name='Theo'/>;
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+    </script>
+
+
+<img src="" alt="">
+
+
+
+</body>
+</html>
