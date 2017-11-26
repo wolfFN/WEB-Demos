@@ -1,5 +1,9 @@
-@import '~antd/dist/antd.css';
+/* @import '~antd/dist/antd.css'; */
 
-.ant-layout-content {
+/* .ant-layout-content {
     background-color: white;
+} */
+
+.ant-layout-header h1 {
+    color: white;
 }

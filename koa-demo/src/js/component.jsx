@@ -1,12 +1,15 @@
 import React from 'react';
 import reqwest from 'reqwest';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import {Table, Icon, Layout} from 'antd';
+// import Table from 'antd/lib/table';
+// import Icon from 'antd/lib/icon';
+// import Layout from 'antd/lib/layout';
 const {Header, Footer, Sider, Content} = Layout;
 
 class Hello extends React.Component {
     render() {
-        return <h1>欢迎严处莅临指导！</h1>;
+        return <h1>欢迎张行莅临指导！</h1>;
     }
 }
 

@@ -9,13 +9,15 @@ module.exports = {
     entry: {
         index: './src/js/index.js',
         detail: './src/js/detail.js',
-        vendors:['react','react-dom', 'reqwest', 'antd']
+        // vendors:['reqwest', 'antd']
+        // vendors:['react','react-dom', 'reqwest', 'antd']
     },
-    // externals: {
-    //     'react': 'React',
-    //     'react-dom': 'ReactDOM',
-    //
-    // },
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'antd': 'antd',
+        'reqwest': 'reqwest'
+    },
     output: {
         publicPath: '/', 
         filename: 'js/[name].[hash].js',
@@ -60,10 +62,10 @@ module.exports = {
             template: '!!raw-loader!' + 'src/views/detail.ejs',
             chunks: ['detail']
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendors",
-            filename: "js/vendors.js",
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: "vendors",
+        //     filename: "js/vendors.js",
+        // }),
         new UglifyJSPlugin(),
         new ExtractTextPlugin("css/[name].css"),
     ]

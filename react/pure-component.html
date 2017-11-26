@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.bootcss.com/react/16.1.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.1.1/umd/react-dom.production.min.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class List extends React.PureComponent {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    options: [
+                        '北京',
+                        '北方',
+                        '北极'
+                    ],
+                    word: ''
+                };
+            }
+
+            handleChange(e) {
+                this.setState({
+                    word: e.target.value
+                });
+            }
+
+            handleClick(e) {
+                let {options} = this.state;
+
+                // options.push("this.state.word");
+                // this.setState({options});
+
+                this.setState(prevState => ({
+                    options: options.concat('哈哈哈')
+                }));
+
+            }
+
+            render() {
+                const options = this.state.options;
+                const lists = options.map(function(option, index) {
+                    return <li key={index}>{option}</li>;
+                });
+                return (
+                <div>
+                    <input type="text" onChange={this.handleChange.bind(this)} />
+                    <button onClick={this.handleClick.bind(this)}>add</button>
+                    <ol>{lists}</ol>
+                </div>
+                )
+            }
+        }
+
+        const element = <List />;
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+    </script>
+
+
+
+</body>
+</html>
