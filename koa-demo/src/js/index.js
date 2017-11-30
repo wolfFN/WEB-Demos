@@ -9,6 +9,7 @@ ReactDOM.render((
     <Router>
         <div>
             <Route exact path="/" component={Main}/>
+            <Route exact path="/views/index.html" component={Main}/>
             <Route path="/about" component={About}/>
             <Route path="/detail/:key" component={Detail}/>
         </div>

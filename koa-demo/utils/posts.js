@@ -29,6 +29,7 @@ class Posts {
         let query = ctx.query;
         let page = parseInt(query.page) || 1;
         let results = parseInt(query.results) || 10;
+        // console.log(results)
         let startIndex = results * (page - 1);
         let total = this.posts.length;
 
@@ -42,7 +43,7 @@ class Posts {
             },
             results: this
                 .posts
-                .slice(startIndex, startIndex + 10)
+                .slice(startIndex, startIndex + results)
         };
     }
 

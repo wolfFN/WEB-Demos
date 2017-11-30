@@ -8,13 +8,21 @@
 </head>
 <body>
 <div id='main'></div>
-<!--for dev env. 'npm run dll' first.-->
-<!-- <script type="text/javascript" src="/lib/vendor.dll.js"></script> -->
 
-<!--for prod env. we use cdn to load external dependencies.-->
-<script src="https://cdn.bootcss.com/react/16.1.1/umd/react.production.min.js"></script>
-<script src="https://cdn.bootcss.com/react-dom/16.1.1/umd/react-dom.production.min.js"></script>
-<script src="https://cdn.bootcss.com/antd/2.13.10/antd.min.js"></script>
-<script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+<!--webpack defined variable is not accessable, -->
+<!--<script type="text/javascript">-->
+    <!--console.log(__ENV__);-->
+<!--</script>-->
+
+<!-- TODO: Find a better way to introduce js.-->
+<!--for dev, 'npm run dll' first.-->
+ <script type="text/javascript" src="/lib/vendor.dll.js"></script>
+
+<!--for prod, we use CDN to load external dependencies.-->
+<!--<script src="https://cdn.bootcss.com/react/16.1.1/umd/react.production.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/react-dom/16.1.1/umd/react-dom.production.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/antd/2.13.10/antd.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>-->
+
 </body>
 </html>

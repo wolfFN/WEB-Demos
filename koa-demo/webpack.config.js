@@ -9,7 +9,6 @@ module.exports = {
     entry: {
         index: './src/js/index.js',
         detail: './src/js/detail.js',
-        // vendors:['reqwest', 'antd']
         // vendors:['react','react-dom', 'reqwest', 'antd']
     },
     externals: {
@@ -68,5 +67,8 @@ module.exports = {
         // }),
         new UglifyJSPlugin(),
         new ExtractTextPlugin("css/[name].css"),
+        new webpack.DefinePlugin({
+            '__DEV__': false
+        }),
     ]
 };

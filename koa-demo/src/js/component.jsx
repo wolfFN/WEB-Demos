@@ -7,6 +7,10 @@ import {Table, Icon, Layout} from 'antd';
 // import Layout from 'antd/lib/layout';
 const {Header, Footer, Sider, Content} = Layout;
 
+const Domain = __DEV__? 'http://localhost:3000':'';
+console.log('Domain : ' + Domain);
+const PageSize = 20;
+
 class Hello extends React.Component {
     render() {
         return <h1>欢迎张行莅临指导！</h1>;
@@ -39,20 +43,21 @@ class List extends React.Component {
         console.log('params:', params);
         this.setState({loading: true});
         reqwest({
-            // url: 'http://localhost:3000/posts',
-            url: 'posts',
+            url: `${Domain}/posts`,
+            // url: 'posts',
             method: 'get',
             data: {
-                results: 10,
+                results: PageSize,
                 ...params
             },
             type: 'json'
         }).then((data) => {
+            // Read total count from server pagination.total = data.totalCount;
             const pagination = {
+                total: data.info.total,
+                pageSize: PageSize,
                 ...this.state.pagination
             };
-            // Read total count from server pagination.total = data.totalCount;
-            pagination.total = data.info.total;
             this.setState({loading: false, data: data.results, pagination});
         });
     };
@@ -80,7 +85,7 @@ class Main extends React.Component {
                 <Content>
                     <List/>
                 </Content>
-                {/* <Footer>Footer</Footer> */}
+                 <Footer>Footer</Footer>
             </Layout>
         </div>
     }
@@ -102,7 +107,8 @@ class Detail extends React.Component {
     };
     fetch = () => {
         reqwest({
-            url: '/posts/' + this.props.match.params.key,
+            url: `${Domain}/posts/${this.props.match.params.key}`,
+            // url: '/posts/' + this.props.match.params.key,
             method: 'get'
         }).then((data) => {
 

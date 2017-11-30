@@ -64,5 +64,8 @@ module.exports = {
         }),
         // new UglifyJSPlugin(),
         new ExtractTextPlugin("css/[name].css"),
+        new webpack.DefinePlugin({
+            '__DEV__': true
+        }),
     ]
 };

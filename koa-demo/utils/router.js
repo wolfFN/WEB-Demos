@@ -20,7 +20,7 @@ let router = new Router();
 
 // page routes
 router.get('/', main);
-router.get('/about', about)
+router.get('/about', about);
 router.get('/static/:key', posts.detail);
 
 // restful api
