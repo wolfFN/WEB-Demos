@@ -3,3 +3,5 @@ dist
 webpack-demo/public/bundle*
 .idea
 .DS_Store
+.vscode/
+coverage/
