@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Animation</title>
+    <link rel='stylesheet' href='./index.css' class='rel'>
+</head>
+<body>
+<button>Make it Smooth</button>
+
+<div class='container'>
+    <div class='card'>
+        <h1>ani 1</h1>
+    </div>
+    <div class='card'>
+        <h1>ani 2</h1>
+    </div>
+    <div class='card'>
+        <h1>ani 3</h1>
+    </div>
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+<!--    <div class='card'>-->
+<!--        <h1>ani 3</h1>-->
+<!--    </div>-->
+</div>
+
+<script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+        document.querySelectorAll(('.card')).forEach(card => card.classList.add('newAnim'));
+    });
+</script>
+
+
+</body>
+</html>
