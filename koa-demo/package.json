@@ -24,7 +24,7 @@
     "mysql2": "^1.4.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "sequelize": "^4.22.5",
+    "sequelize": "^5.15.1",
     "webpack": "^3.8.1"
   },
   "devDependencies": {
